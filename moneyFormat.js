@@ -5,7 +5,10 @@ export default {
       var left = money.split('.')[0]
       var right = money.split('.')[1]
       var temp = left.split('').reverse().join('').match(/(\d{1,3})/g)
-      var result = (Number(money) < 0 ? '-' : '') + temp.join(',').split('').reverse().join('') + '.' + right
+      var result = (Number(money) < 0 ? '-' : '') + temp.join(',').split('').reverse().join('')
+      if (right) {
+        result += '.' + right
+      }
       return result
     } else if (money === 0) {
       return '0.00'
