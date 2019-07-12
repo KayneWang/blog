@@ -11,3 +11,5 @@
 3：[JS面试题总结](https://github.com/KayneWang/blog/issues/3)
 
 4：[HTML和CSS面试题总结](https://github.com/KayneWang/blog/issues/4)
+
+5：[实用技巧总结](https://github.com/KayneWang/blog/blob/master/someSkills.md)
