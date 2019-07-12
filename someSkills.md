@@ -15,7 +15,25 @@ function factorial(n) {
   }
 }
 
-factorial(10) // 3628800
+factorial(5) // 120
 ```
 
-这种方式执行之后会保存 10 条记录，很容易造成栈溢出。如下图：
+这种方式执行之后会保存 10 条记录，很容易造成栈溢出，如下图：
+
+<img src="https://github.com/KayneWang/blog/blob/master/img/factorial.png" width="500" />
+
+使用尾递归优化：
+
+```js
+fucntion factorial(n, total) {
+  if (n === 1) {
+    return total
+  }
+  return factorial(n - 1, n * total)
+}
+
+factorial(5, 1) // 120
+```
+
+这样的话，执行一次只会产生一次记录，所以就避免了栈溢出，如下图：
+
