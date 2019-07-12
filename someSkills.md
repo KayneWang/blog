@@ -1,4 +1,4 @@
-# 搜集的一些实用方案
+# 一些常见问题
 
 ## 避免递归栈溢出（使用尾递归）
 
@@ -36,4 +36,6 @@ factorial(5, 1) // 120
 ```
 
 这样的话，执行一次只会产生一次记录，所以就避免了栈溢出，如下图：
+
+<img src="https://github.com/KayneWang/blog/blob/master/img/factorialTail.png" width="400" />
 
