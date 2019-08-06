@@ -4,14 +4,15 @@
 
 # 目录
 
-1：[《JavaScript高级程序设计第三版》（章节总结）](https://github.com/wangzengkai/blog/issues/1)
+- [使用 webpack4 配置 react 开发依赖](https://github.com/KayneWang/blog/blob/master/webpack4-react.md) (2019-8)
 
-2: [为什么选择 redux-saga 中间件](https://github.com/wangzengkai/blog/issues/2)
+- [实用技巧总结](https://github.com/KayneWang/blog/blob/master/someSkills.md)
 
-3：[JS面试题总结](https://github.com/KayneWang/blog/issues/3)
+- [《JavaScript高级程序设计第三版》（章节总结）](https://github.com/wangzengkai/blog/issues/1)
 
-4：[HTML和CSS面试题总结](https://github.com/KayneWang/blog/issues/4)
+- [为什么选择 redux-saga 中间件](https://github.com/wangzengkai/blog/issues/2)
 
-5：[实用技巧总结](https://github.com/KayneWang/blog/blob/master/someSkills.md)
+- [JS面试题总结](https://github.com/KayneWang/blog/issues/3)
 
-6：[使用 webpack4 配置 react 开发依赖](https://github.com/KayneWang/blog/blob/master/webpack4-react.md) (2019-8)
+- [HTML和CSS面试题总结](https://github.com/KayneWang/blog/issues/4)
+
