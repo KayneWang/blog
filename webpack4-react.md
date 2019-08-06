@@ -127,7 +127,7 @@ dist/index.html
 
 使用浏览器打开index.html我们应该可以看到:
 
-![avatar](webpack_init_1)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_1.png" width="500" />
 
 现在的目录结构如下：
 
@@ -208,7 +208,7 @@ $ npm run build
 
 打开 dist/index.html 查看，我们可以看到：
 
-![avatar](webpack_init_2)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_2.png" width="500" />
 
 2. clean-webpack-plugin
 
@@ -404,7 +404,7 @@ npm run build
 
 顺利的话，我们打开 dist/index.html 可以发现已经多了一个图标
 
-![avatar](webpack_init_3)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_3.png" width="500" />
 
 当前的文件夹结构如下：
 
@@ -577,7 +577,7 @@ $ npm start
 
 正常的话，可以看到：
 
-![avatar](react_init_1)
+<img src="https://github.com/KayneWang/blog/blob/master/img/react_init_1.png" width="500" />
 
 ok，现在我们的 react 配置已经完成，当前的目录结构如下：
 
@@ -869,13 +869,13 @@ $ npm start
 
 如果没什么问题我们可以看到
 
-![avatar](react_init_2)
+<img src="https://github.com/KayneWang/blog/blob/master/img/react_init_2.png" width="500" />
 
 ### 友好提示
 
 我们发现，当前配置的 webpack 终端输出的日志比较多
 
-![avatar](webpack_init_4)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_4.png" width="500" />
 
 可是很多脚手架并不是这样，下面我们使用 <b>friendly-errors-webpack-plugin</b> 进行优化，并通过 <b>node-notifier</b> 将错误信息抛出。
 
@@ -926,11 +926,11 @@ $ npm start
 
 可以看到，是不是清爽了很多。
 
-![avatar](webpack_init_5)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_5.png" width="500" />
 
 报错之后也能够正常抛出错误
 
-![avatar](webpack_init_6)
+<img src="https://github.com/KayneWang/blog/blob/master/img/webpack_init_6.png" width="500" />
 
 ### 结尾
 
