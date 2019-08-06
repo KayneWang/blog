@@ -13,3 +13,5 @@
 4：[HTML和CSS面试题总结](https://github.com/KayneWang/blog/issues/4)
 
 5：[实用技巧总结](https://github.com/KayneWang/blog/blob/master/someSkills.md)
+
+6：[使用 webpack4 配置 react 开发依赖](https://github.com/KayneWang/blog/blob/master/webpack4-react.md)
