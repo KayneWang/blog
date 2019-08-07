@@ -20,7 +20,6 @@
 
 - webpack 4.38.0
 - react 16.8.6
-- react-router-dom 5.0.0
 
 ### 项目初始化
 
