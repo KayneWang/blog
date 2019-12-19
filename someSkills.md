@@ -39,3 +39,29 @@ factorial(5, 1) // 120
 
 <img src="https://github.com/KayneWang/blog/blob/master/img/factorialTail.png" width="400" />
 
+## 点击按钮上传本地文件
+
+```html
+<input type="file" ref={fileInput} onChange={getFile} style="display:none;" />
+<button onClick={selectFile}>上传文件</button>
+```
+
+```js
+const fileInput = useRef(null)
+const selectFile = () => {
+  filtInput.current.click()
+}
+const getFile = e => {
+  const files = e.target.files
+  const filename = files[0].name
+  if (filename.lastIndexOf('.') <= 0) {
+    return alert("请选择有效文件")
+  }
+  const fd = new FormData()
+  fd.append('name', files[0])
+  
+  // 请求 api
+  xxx(fd).then(res => {......})
+}
+```
+
