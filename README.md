@@ -8,7 +8,8 @@
 - [使用 webpack4 配置 react 开发依赖](https://github.com/KayneWang/blog/blob/master/article/webpack4-react.md) (2019-8)
 
 - [实用技巧总结](https://github.com/KayneWang/blog/blob/master/someSkills.md)
-  - [点击按钮上传本地文件](https://github.com/KayneWang/blog/blob/master/someSkills.md#%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6)
+  - [上传文件](https://github.com/KayneWang/blog/blob/master/someSkills.md#%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6)
+  -[Html转word](https://github.com/KayneWang/blog/blob/master/someSkills.md#html-to-word)
 
 - [《JavaScript高级程序设计第三版》（章节总结）](https://github.com/wangzengkai/blog/issues/1)
 
