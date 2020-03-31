@@ -113,7 +113,7 @@ $ git push origin 0.0.1
 
 往期 blog([前端静态资源容器部署](https://github.com/KayneWang/blog/blob/master/article/deploy.md)) 有使用 ngnix 打包镜像的文章，感兴趣的可以去了解一下，当然也可以直接通过本文使用优化后的打包方案。
 
-使用该博客提供的 [caddy_linux]() 程序或者下载 [caddy](https://github.com/caddyserver/caddy/releases)，在根目录新建 Caddyfile：
+使用该博客提供的 [caddy_linux](https://github.com/KayneWang/blog/blob/master/bin/caddy_linux) 程序或者下载 [caddy](https://github.com/caddyserver/caddy/releases)，在根目录新建 Caddyfile：
 
 > 注意：该配置前端打包后资源在 build 文件夹下面
 
