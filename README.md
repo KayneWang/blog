@@ -3,6 +3,9 @@
 学习过程中的一些总结以及记录，方便快速复习以及学习
 
 # 目录
+
+- [聊一聊 React 中 key 的作用](https://github.com/KayneWang/blog/blob/master/article/react-key.md)（2020-05）
+
 - [持续集成方案（CI）](https://github.com/KayneWang/blog/blob/master/article/ci.md) (2020-03)
 
 - [前端静态资源容器部署](https://github.com/KayneWang/blog/blob/master/article/deploy.md) (2019-10)
