@@ -1,12 +1,6 @@
 # 持续集成方案
 
-持续集成（CI）现在是开发过程中提高效率必不可少的，我们以前端的角度出发，配置一套通用的持续集成方案。经过本文你可以学习到：
-
-- drone 的基础用法
-- 前端静态资源 Dockerfile 优化
-- caddy 简单使用
-
-该文章只介绍了 drone 的简单使用，更多的配置还请大家参考官方文档，感兴趣的也可以一起沟通交流。
+持续集成（CI）现在是开发过程中提高效率必不可少的，该文章只介绍了 drone 的简单使用，更多的配置还请大家参考官方文档，感兴趣的也可以一起沟通交流。
 
 ## Drone
 
@@ -93,7 +87,6 @@ steps:
     password: xxxxxx
     repo: xxxxxx/test.ci
     tags: ${DRONE_TAG}
-    prune: true
 
 trigger:
   ref:
@@ -109,67 +102,4 @@ $ git push origin 0.0.1
 
 顺利的话，我们就可以通过访问 x.x.x.x:7099 查看当前构建状态了。
 
-## Dockerfile 优化
-
-往期 blog([前端静态资源容器部署](https://github.com/KayneWang/blog/blob/master/article/deploy.md)) 有使用 ngnix 打包镜像的文章，感兴趣的可以去了解一下，当然也可以直接通过本文使用优化后的打包方案。
-
-使用该博客提供的 [caddy_linux](https://github.com/KayneWang/blog/blob/master/bin/caddy_linux) 程序或者下载 [caddy](https://github.com/caddyserver/caddy/releases)，在根目录新建 Caddyfile：
-
-> 注意：该配置前端打包后资源在 build 文件夹下面
-
-```
-:80 {
-    log stdout
-
-    header / {
-        -Server
-    }
-
-    rewrite {
-        to /
-    }
-
-    root ./build
-}
-
-:80/hs {
-    status 200 /
-
-    header / {
-        -Server
-    }
-}
-
-:80/static/ {
-    root ./build/static
-
-    gzip
-    header / {
-        Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
-        -Server
-    }
-}
-```
-
-修改根目录 Dockerfile：
-
-> 注意：scratch 镜像是提供 linux 基础功能的最小镜像，能够显著减少打包后的镜像体积
-
-```
-FROM node:alpine3.10 as builder
-WORKDIR /app
-COPY . /app
-RUN yarn install
-RUN yarn build
-
-FROM scratch as production
-
-COPY --from=builder /app/build/ /data/build/
-COPY --from=builder /app/Caddyfile /data
-COPY --from=builder /app/caddy_linux /data
-
-WORKDIR /data
-
-EXPOSE 80
-ENTRYPOINT [ "/data/caddy_linux" ]
-```
+如果需要访问自定义域名可以参考 [Docker 使用自定义 DNS 解析](https://github.com/KayneWang/blog/blob/master/article/docker-custom-dns.md)
