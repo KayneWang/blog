@@ -6,6 +6,8 @@
 
 - [Docker 使用自定义 DNS 解析](https://github.com/KayneWang/blog/blob/master/article/docker-custom-dns.md) (2020-08)
 
+- [聊一聊 React 中 key 的作用](https://github.com/KayneWang/blog/blob/master/article/react-key.md)（2020-05）
+
 - [持续集成方案（CI）](https://github.com/KayneWang/blog/blob/master/article/ci.md) (2020-03)
 
 - [前端静态资源容器部署](https://github.com/KayneWang/blog/blob/master/article/deploy.md) (2019-10)
