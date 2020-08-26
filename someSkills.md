@@ -107,168 +107,69 @@ factorial(5, 1) // 120
 
 ## 获取输入框光标位置
 
-```js
-var kingwolfofsky = {
-    /**
-    * 获取输入光标在页面中的坐标
-    * @param		{HTMLElement}	输入框元素        
-    * @return		{Object}		返回left和top,bottom
-    */
-    getInputPositon: function (elem) {
-        if (document.selection) {   //IE Support
-            elem.focus();
-            var Sel = document.selection.createRange();
-            return {
-                left: Sel.boundingLeft,
-                top: Sel.boundingTop,
-                bottom: Sel.boundingTop + Sel.boundingHeight
-            };
-        } else {
-            var that = this;
-            var cloneDiv = '{$clone_div}',
-                cloneLeft = '{$cloneLeft}',
-                cloneFocus = '{$cloneFocus}',
-                cloneRight = '{$cloneRight}';
-            var none = '<span style="white-space:pre-wrap;"> </span>';
-            var div = elem[cloneDiv] || document.createElement('div'),
-                focus = elem[cloneFocus] || document.createElement('span');
-            var text = elem[cloneLeft] || document.createElement('span');
-            var offset = that._offset(elem),
-                index = this._getFocus(elem),
-                focusOffset = { left: 0, top: 0 };
-
-            if (!elem[cloneDiv]) {
-                elem[cloneDiv] = div, elem[cloneFocus] = focus;
-                elem[cloneLeft] = text;
-                div.appendChild(text);
-                div.appendChild(focus);
-                document.body.appendChild(div);
-                focus.innerHTML = '|';
-                div.className = this._cloneStyle(elem);
-                div.style.cssText = 'visibility:hidden;display:inline-block;position:absolute;z-index:-100;';
-            };
-            div.style.left = this._offset(elem).left + "px";
-            div.style.top = this._offset(elem).top + "px";
-            var strTmp = elem.value.substring(0, index).replace(/</g, '<').replace(/>/g, '>').replace(/\n/g, '<br/>').replace(/\s/g, none);
-            text.innerHTML = strTmp;
-
-            focus.style.display = 'inline-block';
-            try { focusOffset = this._offset(focus); } catch (e) { };
-            focus.style.display = 'none';
-            return {
-                left: focusOffset.left,
-                top: focusOffset.top,
-                bottom: focusOffset.bottom
-            };
-        }
-    },
-
-    // 克隆元素样式并返回类
-    _cloneStyle: function (elem, cache) {
-        if (!cache && elem['${cloneName}']) return elem['${cloneName}'];
-        var className, name, rstyle = /^(number|string)$/;
-        var rname = /^(content|outline|outlineWidth)$/; //Opera: content; IE8:outline && outlineWidth
-        var cssText = [], sStyle = elem.style;
-
-        for (name in sStyle) {
-            if (!rname.test(name)) {
-                val = this._getStyle(elem, name);
-                if (val !== '' && rstyle.test(typeof val)) { // Firefox 4
-                    name = name.replace(/([A-Z])/g, "-$1").toLowerCase();
-                    cssText.push(name);
-                    cssText.push(':');
-                    cssText.push(val);
-                    cssText.push(';');
-                };
-            };
-        };
-        cssText = cssText.join('');
-        elem['${cloneName}'] = className = 'clone' + (new Date).getTime();
-        this._addHeadStyle('.' + className + '{' + cssText + '}');
-        return className;
-    },
-
-    // 向页头插入样式
-    _addHeadStyle: function (content) {
-        var style = this._style[document];
-        if (!style) {
-            style = this._style[document] = document.createElement('style');
-            document.getElementsByTagName('head')[0].appendChild(style);
-        };
-        style.styleSheet && (style.styleSheet.cssText += content) || style.appendChild(document.createTextNode(content));
-    },
-    _style: {},
-
-    // 获取最终样式
-    _getStyle: 'getComputedStyle' in window ? function (elem, name) {
-        return getComputedStyle(elem, null)[name];
-    } : function (elem, name) {
-        return elem.currentStyle[name];
-    },
-
-    // 获取光标在文本框的位置
-    _getFocus: function (elem) {
-        var index = 0;
-        if (document.selection) {// IE Support
-            elem.focus();
-            var Sel = document.selection.createRange();
-            if (elem.nodeName === 'TEXTAREA') {//textarea
-                var Sel2 = Sel.duplicate();
-                Sel2.moveToElementText(elem);
-                var index = -1;
-                while (Sel2.inRange(Sel)) {
-                    Sel2.moveStart('character');
-                    index++;
-                };
-            }
-            else if (elem.nodeName === 'INPUT') {// input
-                Sel.moveStart('character', -elem.value.length);
-                index = Sel.text.length;
-            }
-        }
-        else if (elem.selectionStart || elem.selectionStart == '0') { // Firefox support
-            index = elem.selectionStart;
-        }
-        return (index);
-    },
-
-    // 获取元素在页面中位置
-    _offset: function (elem) {
-        var box = elem.getBoundingClientRect(), doc = elem.ownerDocument, body = doc.body, docElem = doc.documentElement;
-        var clientTop = docElem.clientTop || body.clientTop || 0, clientLeft = docElem.clientLeft || body.clientLeft || 0;
-        var top = box.top + (self.pageYOffset || docElem.scrollTop) - clientTop, left = box.left + (self.pageXOffset || docElem.scrollLeft) - clientLeft;
-        return {
-            left: left,
-            top: top,
-            right: left + box.width,
-            bottom: top + box.height
-        };
-    }
-};
-```
-
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>InputPostion</title>
-    <script type="text/javascript" src="kingwolfofsky.js"></script>
-    <script type="text/javascript">
-        function show(elem) {
-            var p = kingwolfofsky.getInputPositon(elem);
-            var s = document.getElementById('show');
-            s.style.top = p.bottom+'px';
-            s.style.left = p.left + 'px';
-            s.style.display = 'inherit';
+    <title>GetPosition</title>
+    <style>
+        #input,
+        #output {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font: 14px/1 monospace;
+            padding: 5px;
+            border: 1px solid #999;
+            white-space: pre;
+            margin: 0;
+            background: transparent;
+            width: 300px;
+            max-width: 300px;
         }
-    </script>
+
+        #input {
+            z-index: 2;
+            min-height: 200px;
+        }
+
+        #output {
+            border-color: transparent;
+        }
+
+        #output span {
+            opacity: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #position {
+            position: absolute;
+            top: 250px;
+            left: 10px;
+        }
+    </style>
 </head>
 <body>
-    <textarea id="text" onkeyup="show(this)" style="width: 340px; height: 210px;"></textarea>    
-    <div id="show" style="background: #eee; position: absolute;border:1px solid grey;font-size:13px; display:none;">
-        This is tooltip
-    </div>
+    <textarea id="input" onkeyup="update()"></textarea>
+    <div id="output"><span></span></div>
+    <div id="position"></div>
 </body>
+<script>
+    var input = document.getElementById('input'),
+        output = document.getElementById('output').firstChild,
+        position = document.getElementById('position');
+
+    function update() {
+        output.innerHTML = input.value.substr(0, input.selectionStart).replace(/\n$/, "\n\001");
+
+        var rects = output.getClientRects(),
+            lastRect = rects[rects.length - 1],
+            top = lastRect.top - input.scrollTop,
+            left = lastRect.left + lastRect.width;
+        position.innerText = "top: " + top + "px left: " + left + "px";
+    }
+</script>
 </html>
 ```
 
