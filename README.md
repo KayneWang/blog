@@ -6,6 +6,8 @@
 
 # 目录
 
+* [丢掉幻想，自己实现一个不可变数据](https://kaynewang.github.io/post/immutable-data/) (2020-09)
+
 * [React 事件系统](https://kaynewang.github.io/post/react-event-system/) (2020-08)
 
 * [Docker 使用自定义 DNS 解析](https://github.com/KayneWang/blog/blob/master/article/docker-custom-dns.md) (2020-08)
