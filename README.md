@@ -2,8 +2,6 @@
 
 学习过程中的一些总结以及记录，方便快速复习以及学习。
 
-为了更好的阅读体验，新博客通过 GitPage 托管。请移步 [https://kaynewang.github.io/](https://kaynewang.github.io/)
-
 # 目录
 
 * [丢掉幻想，自己实现一个不可变数据](https://kaynewang.github.io/post/immutable-data/) (2020-09)
